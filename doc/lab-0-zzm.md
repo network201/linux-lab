@@ -27,7 +27,12 @@
 - ```sudo systemctl restart docker```
 
 ### docker环境配置
-- 拉取Ubuntu镜像命令行中输入```sudo docker pull ubuntu:20.04```，即可拉取ubuntu20.04的镜像，然后可以使用```sudo docker images```查看拉取到的镜像； 在命令行中输入```sudo docker run -it ubuntu:20.04 /bin/bash```，即可创建并运行一个容器，当终端中出现```root@<string>:/#```时，则表示容器创建完成且已经进入容器，其中，```string```是容器的id，即```containerId```； 若需要退出在容器内退出容器，输入```exit```即可，若需要在容器外再次进入容器，则在终端中依次输入```docker start <containerId>```，```docker attach <containerId>```即可。（更多指令可参考docker官方教程）
+- 拉取Ubuntu镜像命令行中输入```sudo docker pull ubuntu:20.04```，即可拉取ubuntu20.04的镜像，然后可以使用```sudo docker images```查看拉取到的镜像； 在命令行中输入```sudo docker run -it ubuntu:20.04 /bin/bash```，即可创建并运行一个容器，当终端中出现```root@<string>:/#```时，则表示容器创建完成且已经进入容器，其中，```string```是容器的id，即```containerId```； 若需要退出在容器内退出容器，输入```exit```即可，若需要在容器外再次进入容器，则在终端中依次输入```sudo docker start <containerId>```，```sudo docker attach <containerId>```即可。
+\
+有时候进入容器后会有网络问题，可修改启动参数，如指令：
+```docker run -it --network=host --name linux-lab0 ubuntu:20.04" ```
+（默认网络方式是桥接，即bridge；更多指令可参考docker官方教程）
+\
 进入docker-ubuntu后如图所示。
 ![进入docker](../image/进入docker.png)
 然后输入如下指令安装必要的依赖。
@@ -47,7 +52,7 @@
 git clone [https://github.com/milkv-duo/duo-buildroot-sdk.git](https://github.com/milkv-duo/duo-buildroot-sdk.git)
 - 运行build_milkv.sh脚本进行编译
     - ```cd duo-buildroot-sdk ```
-    - ```./build_milkv.sh```
+    - ```sudo ./build_milkv.sh```
 编译成功后可以在```/duo-buildroot-sdk/out```目录下找到```milkv-duo-xxxxxxxx-xxxx.img```文件，即为制作成功的镜像文件. 至此，可以用基础镜像文件进行下一步TF卡烧录及后续操作。
 - 配置制作预装Python3的镜像将配置脚本，制作带有Python3的镜像 3. 配置制作预装Python3的镜像（可选）
     - cd duo-buildroot-sdk # 导入环境变量 
