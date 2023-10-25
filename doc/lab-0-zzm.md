@@ -13,6 +13,7 @@
 - 在windows环境下，可以安装[Docker Desktop for Windows](https://docs.docker.com/desktop/install/windows-install/)，通过docker拉取ubuntu镜像并创建容器得到linux环境；
 - 在Windows下运行docker需要相关依赖，即如图中所示，需要使用WSL2后端或者Hyper-V后端作为运行依赖。其中Hyper-V后端的启用方式如下： a. 控制面板 —— 程序 —— 启用或关闭Windows功能 b. 找到Hyper-V，勾选Hyper-V管理工具和Hyper-V平台，等待系统文件配置完成后重启电脑
 ![docker配置](../image/docker配置.png)
+\
 然后即可安装下载好Docker Desktop for Windows，在安装指引中根据选择的后端进行相应的勾选；安装完成后，需要重启电脑，然后即可使用docker
 
 
@@ -26,7 +27,7 @@
 - ```sudo systemctl restart docker```
 
 ### docker环境配置
-- 拉取Ubuntu镜像命令行中输入```docker pull ubuntu:20.04```，即可拉取ubuntu20.04的镜像，然后可以使用```docker images```查看拉取到的镜像； 在命令行中输入```docker run -it ubuntu:20.04 /bin/bash```，即可创建并运行一个容器，当终端中出现```root@<string>:/#```时，则表示容器创建完成且已经进入容器，其中，```string```是容器的id，即```containerId```； 若需要退出在容器内退出容器，输入```exit```即可，若需要在容器外再次进入容器，则在终端中依次输入```docker start <containerId>```，```docker attach <containerId>```即可。（更多指令可参考docker官方教程）
+- 拉取Ubuntu镜像命令行中输入```sudo docker pull ubuntu:20.04```，即可拉取ubuntu20.04的镜像，然后可以使用```sudo docker images```查看拉取到的镜像； 在命令行中输入```sudo docker run -it ubuntu:20.04 /bin/bash```，即可创建并运行一个容器，当终端中出现```root@<string>:/#```时，则表示容器创建完成且已经进入容器，其中，```string```是容器的id，即```containerId```； 若需要退出在容器内退出容器，输入```exit```即可，若需要在容器外再次进入容器，则在终端中依次输入```docker start <containerId>```，```docker attach <containerId>```即可。（更多指令可参考docker官方教程）
 进入docker-ubuntu后如图所示。
 ![进入docker](../image/进入docker.png)
 然后输入如下指令安装必要的依赖。
