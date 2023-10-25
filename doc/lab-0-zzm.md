@@ -22,7 +22,7 @@
 - ```sudo pacman -S docker.io container docker```
 - ```sudo systemctl start docker```
 - ```sudo systemctl enable docker```
-- ```sudo usermod -aG xxx(用户名) docker```
+- ```sudo usermod -aG docker xxx(用户名)```
 - ```sudo systemctl restart docker```
 
 ### docker环境配置
