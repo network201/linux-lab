@@ -37,6 +37,7 @@ sudo mount /dev/mapper/loop?p2 /mnt/duo-rootf
 
 挂载成功，进入/mnt/duo-rootf进行后续操作
 
+
 ## 下载软件包
 ### 问题描述
 wget软件包
