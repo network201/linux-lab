@@ -1,7 +1,7 @@
 ### 镜像烧录
 - 准备
     - 小白需要准备一下[github加速](https://blog.csdn.net/B11050729/article/details/132131659)
-    - 请仔细阅读官方文档，并准备好microSD卡用于烧录、Type-C线用于供电与连接以及Duo开发板,现在[milkv Duo启动](https://github.com/network201/linux-lab.git)
+    - 请仔细阅读官方文档，并准备好microSD卡用于烧录、Type-C线用于供电与连接以及Duo开发板,现在[milkv Duo启动](https://milkv.io/zh/docs/home)
 - 镜像烧录工具
     - [Rufus(推荐)](https://rufus.ie/en/)
     - [balenaEtcher](https://etcher.balena.io/)
