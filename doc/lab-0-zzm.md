@@ -66,6 +66,65 @@ git clone [https://github.com/milkv-duo/duo-buildroot-sdk.git](https://github.co
 ```BR2_PACKAGE_PYTHON3=y BR2_PACKAGE_PYTHON3_PYC_ONLY=y```
 ![修改python文件](../image/修改python环境.png)
 
+## 开发环境
+
+- 使用本地的Ubuntu系统，推荐 `Ubuntu 20.04 LTS`
+  <br>
+  (也可以使用虚拟机中的Ubuntu系统、Windows中WSL安装的Ubuntu、基于Docker的Ubuntu系统)
+
+- 进入 Ubuntu
+  ```
+  docker restart 容器名
+  docker attach 容器名
+  ```
+  <br><br>
+  *注：查容器名用`docker ps -a`，改容器名用`docker raname ID名 更改名`*
+
+- 安装编译依赖的工具:
+  ```
+  sudo apt-get install wget git make
+  ```
+
+- 获取 Examples
+  ```
+  git clone https://github.com/milkv-duo/duo-examples.git
+  ```
+
+- 加载编译环境
+  ```
+  cd home 
+  cd duo-examples
+  source envsetup.sh
+  ```
+  第一次加载会自动下载所需的SDK包，大小为180M左右，下载完会自动解压到`duo-examples`下，解压后的目录名为`duo-sdk`，下次加载时检测到已存在该目录，就不会再次下载了
+  <br><br>
+  *注: 如果因为网络原因无法完成SDK包的下载，请通过其他途径获取到`duo-sdk.tar.gz`包，手动解压到`duo-examples`目录下，重新`source envsetup.sh`*
+
+- 编译测试
+
+  **注：在终端登录ssh**
+  ```
+  systemctl status sshd
+  systemctl start sshd
+  systemctl enable sshd
+  ```
+
+  以`hello-world`为例，进入该例子目录直接执行make即可
+  ```
+  cd hello-world
+  make
+  ```
+  编译成功后将生成的`helloworld`可执行程序通过网口或者RNDIS网络等方式传送到Duo设备中，比如[默认固件](https://github.com/milkv-duo/duo-buildroot-sdk/releases)支持的RNDIS方式，Duo的IP为`192.168.42.1`，用户名是`root`，密码是`milkv`
+  ```
+  scp helloworld root@192.168.42.1:/root/
+  ```
+  发送成功后，在ssh或者串口登陆的终端中运行`./helloworld`，会打印`Hello, World!`
+  ```
+  ssh root@192.168.42.1 ./helloworld
+  Hello, World!
+  ```
+  **至此，我们的编译开发环境就可以正常使用了**
+
 ### 关于network201
 - 先登github官网注册github账号，注册登录出现问题麻烦自行查阅搜索引擎
 ![github官网图片](../image/github官网.png)
