@@ -66,7 +66,7 @@ git clone [https://github.com/milkv-duo/duo-buildroot-sdk.git](https://github.co
 ```BR2_PACKAGE_PYTHON3=y BR2_PACKAGE_PYTHON3_PYC_ONLY=y```
 ![修改python文件](../image/修改python环境.png)
 
-## 开发环境
+## 运行简单的C程序
 
 - 使用本地的Ubuntu系统，推荐 `Ubuntu 20.04 LTS`
   <br>
